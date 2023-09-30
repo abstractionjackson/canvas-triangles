@@ -23,6 +23,7 @@ export type Triangle = {
   vertices: [Point, Point, Point]
   fill: string
   stroke?: string
+  lineWidth?: number
   pointInTriangle: typeof pointInTriangle
 }
 export function getTriangle(a:Point, b:Point, c:Point, fill = "#ffffff", stroke?: string):Triangle {
@@ -43,13 +44,14 @@ export function drawTriangle(ctx: CanvasRenderingContext2D, triangle: Triangle) 
     ctx.fillStyle = triangle.fill; // Set the fill color
     ctx.fill(); // Fill the triangle
     ctx.strokeStyle = triangle.stroke ?? 'none'; // Set the stroke color
-    ctx.lineWidth = 2; // Set the line width
-    ctx.stroke(); // Stroke the triangle
+    ctx.lineWidth = triangle.lineWidth ?? 0; // Set the line width
+    if(triangle.stroke) {
+      ctx.stroke(); // Stroke the triangle
+    }
 }
 export function getEqTriHeight(base: number) {
     return (Math.sqrt(3) * base) / 2;
   }
-
   export function getCenter(sideLength: number) {
     // Calculate the height of the equilateral triangle
     const height = (Math.sqrt(3) / 2) * sideLength;
@@ -62,3 +64,10 @@ export function getEqTriHeight(base: number) {
   
     return { x, y };
   }
+export function wrapExtract(arr: any[], i: number, n: number) {
+  let result = [];
+  for (let j = 0; j < n; j++) {
+      result.push(arr[(i + j) % arr.length]);
+  }
+  return result;
+}

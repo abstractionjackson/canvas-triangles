@@ -1,58 +1,9 @@
-# create-svelte
-
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
-
-## Building
-
-To build your library:
-
-```bash
-npm run package
-```
-
-To create a production version of your showcase app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+# Canvas Triangles: Svelte Edition
+The Canvas Triangles module is a Svelte library that features responsive triangles drawn on an HTML canvas. The design is adapted from the original painting by [Steve Galan](https://stevegalan.com/)
+![Triangles](https://images.squarespace-cdn.com/content/v1/50987d02e4b07a4c81af6ca9/c7b303da-bfb2-4e9e-ab03-b521b3cdb8de/IMG_0210.JPG?format=2500w)
+## Modular Design
+The responsive element uses Svelte's eponymous component's *window* directive to update the canvas on the *resize* event. Could this have been achieved in  native JavaScript via the DOM API? ...yes.
+As it stands, however, the module provides a single Svelete component, *Background*, that can take a prop, "numTriangles", to set the numer of triangles to draw along the horizonal (width) axis. Under the hood, Canvas Triangles calculates the base, height, and side length based on the browser window and this number.
+Additionally, color is configurable via the "colors" prop, and plans to build animations for dynamic coloring are underway.
+## Author
+Jackson Galan

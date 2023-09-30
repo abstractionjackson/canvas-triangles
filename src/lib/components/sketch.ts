@@ -1,11 +1,11 @@
 import { drawTriangle, getCenter, getEqTriHeight, getPoint, getTriangle, type Triangle } from './utils.js';
-import { COLROS } from './constants.js';
+import { COLORS } from './constants.js';
 
 export default function (
 	canvas: HTMLCanvasElement,
-	trianglesPerRow: number = 10
+	trianglesPerRow: number = 10,
+	colors: string[] = Object.values(COLORS)
 ) {
-	console.log('Sketching ', trianglesPerRow, 'triangles per row');
 	// Get the window dimensions
 	const { innerHeight, innerWidth } = window;
 
@@ -49,7 +49,8 @@ export default function (
 				[D, B, C],
 				[D, C, E]
 			].forEach(([a, b, c], i) => {
-				triangles.push(getTriangle(a, b, c))// using default fill, stroke
+				const fillColor = colors[i % 6] // 6 max
+				triangles.push(getTriangle(a, b, c, fillColor))// using default stroke
 			});
 		}
 	}
@@ -72,6 +73,8 @@ export default function (
 		update();
 	  });
 
-	  update();
+	update();
+
+	return canvas;
 	  
 }
