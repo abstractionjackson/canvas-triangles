@@ -5,5 +5,9 @@ The Canvas Triangles module is a Svelte library that features responsive triangl
 The responsive element uses Svelte's eponymous component's *window* directive to update the canvas on the *resize* event. Could this have been achieved in  native JavaScript via the DOM API? ...yes.
 As it stands, however, the module provides a single Svelete component, *Background*, that can take a prop, "numTriangles", to set the numer of triangles to draw along the horizonal (width) axis. Under the hood, Canvas Triangles calculates the base, height, and side length based on the browser window and this number.
 Additionally, color is configurable via the "colors" prop, and plans to build animations for dynamic coloring are underway.
+### Example: numTriangles
+![tri-9](/static//tri-9.png)
+![tri-25](/static//tri-25.png)
+![tri-70](/static/tri-70.png)
 ## Author
 Jackson Galan
